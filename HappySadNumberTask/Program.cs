@@ -2,8 +2,43 @@
 {
     internal class Program
     {
+        static bool IsHappyNumber(int num)
+		{
+			for (int i = 0; i < 100; i++)
+			{
+				if (num == 1)
+				return true;
+				num = SumOfSquaredDigits(num);
+			}
+				return false;
+		}
+
+		static int SumOfSquaredDigits(int n)
+		{
+			int sum = 0;
+			while (n > 0)
+			{
+				int digit = n % 10;
+				sum += digit * digit;
+				n = n / 10; 
+			}
+			return sum;	
+		}
+        
         static void Main(string[] args)
         {
+            public static void Main()
+    		{
+    		    Console.WriteLine("enter number");
+    		    int num = Convert.ToInt32(Console.ReadLine());
+    		if (IsHappyNumber(num))
+    		{
+    				Console.WriteLine(num + " is a happy number");
+    		}
+    		else
+    		{
+    				Console.WriteLine(num + " is a sad number");
+    		}
             /*There are said to be happy numbers and sad numbers.
             Happy numbers will reduce to 1 when the digits belonging to the numbers are squared and added together to produce another number and the process is repeated. e.g. when we take 19
             1 squared is 1 , 9 squared is 81. 81 +1 = 82
@@ -25,6 +60,5 @@
             //The program should take a number as input and output whether the number is happy or sad
             //test your program with the inputs of 19 and 20
             //show your output in the readme file
-        }
     }
 }
